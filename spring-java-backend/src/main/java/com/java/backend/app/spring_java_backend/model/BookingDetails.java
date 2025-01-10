@@ -17,8 +17,12 @@ public class BookingDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	UUID id;
-	Long userId;
-	Long eventId;
+	@ManyToOne
+	@JoinColumn(name="user_id", nullable = false)
+	User user;
+	@ManyToOne
+	@JoinColumn(name="event_id", nullable = false)
+	EventDetails event;
 	Long numberOfSeats;
 	Long phone;
 

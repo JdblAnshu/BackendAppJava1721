@@ -84,6 +84,7 @@
   Emit metrics
   Check for vulnerablities
   Foreign key @one-many, @one one
+  Try orphanremoval and cascadetype
   Unit test 
 
 Integration test at the end if possible spin containers

@@ -21,5 +21,7 @@ public class EventDetails {
 	LocalDateTime startTime;
 	LocalDateTime endTime;
 	Boolean isActive;
-	Long venueId;
+	@ManyToOne
+	@JoinColumn(name="venue_id", nullable = false, referencedColumnName = "id")
+	Venue venue;
 }
