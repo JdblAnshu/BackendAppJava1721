@@ -9,9 +9,6 @@ import java.util.UUID;
 
 @Entity
 @Table
-@Getter
-@Setter
-@AllArgsConstructor
 public class BookingDetails {
 
 	@Id
@@ -26,4 +23,43 @@ public class BookingDetails {
 	Long numberOfSeats;
 	Long phone;
 
+	public UUID getId() {
+		return id;
+	}
+
+	public void setId(UUID id) {
+		this.id = id;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public EventDetails getEvent() {
+		return event;
+	}
+
+	public void setEvent(EventDetails event) {
+		this.event = event;
+	}
+
+	public Long getNumberOfSeats() {
+		return numberOfSeats;
+	}
+
+	public void setNumberOfSeats(Long numberOfSeats) {
+		this.numberOfSeats = numberOfSeats;
+	}
+
+	public Long getPhone() {
+		return phone;
+	}
+
+	public void setPhone(Long phone) {
+		this.phone = phone;
+	}
 }

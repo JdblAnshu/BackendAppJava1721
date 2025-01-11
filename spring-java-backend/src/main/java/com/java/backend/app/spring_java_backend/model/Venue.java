@@ -1,10 +1,6 @@
 package com.java.backend.app.spring_java_backend.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Min;
 
@@ -12,8 +8,6 @@ import java.util.List;
 
 @Entity
 @Table
-@Getter
-@Setter
 public class Venue {
 
     @Id
@@ -33,4 +27,52 @@ public class Venue {
     @OneToMany(mappedBy = "venue")
     private List<EventDetails> events;
 
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public @NotNull(message = "Venue name cannot be null") String getName() {
+        return name;
+    }
+
+    public void setName(@NotNull(message = "Venue name cannot be null") String name) {
+        this.name = name;
+    }
+
+    public @Min(value = 1, message = "Capacity must be greater than 0") Long getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(@Min(value = 1, message = "Capacity must be greater than 0") Long capacity) {
+        this.capacity = capacity;
+    }
+
+    public Long getAdminId() {
+        return adminId;
+    }
+
+    public void setAdminId(Long adminId) {
+        this.adminId = adminId;
+    }
+
+    public List<EventDetails> getEvents() {
+        return events;
+    }
+
+    public void setEvents(List<EventDetails> events) {
+        this.events = events;
+    }
 }

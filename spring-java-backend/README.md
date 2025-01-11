@@ -89,6 +89,8 @@
 
 Integration test at the end if possible spin containers
 Logstash
+
+CHECK FOR ACCESS MODIFIERS 
     
     
             
