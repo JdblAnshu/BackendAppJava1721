@@ -30,6 +30,7 @@ public class EventService {
 		eventDetails.setName(eventRequest.getName());
 		eventDetails.setStartTime(eventRequest.getStartTime());
 		eventDetails.setEndTime(eventRequest.getEndTime());
+		eventDetails.setCapacity(eventRequest.getCapacity());
 		eventDetails.setActive(eventRequest.getActive());
 		eventDetails.setVenue(venue);  // Setting the venue
 

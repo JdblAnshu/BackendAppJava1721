@@ -20,7 +20,7 @@ public class VenueService {
 
 	public Venue updateVenue(Long id, Venue venue) {
 
-		Venue existingVenue = venueRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
+		Venue existingVenue = venueRepository.findById(id).orElseThrow(() -> new RuntimeException("Venue not found"));
 
 		if (null != venue.getAddress()) {
 			existingVenue.setAddress(venue.getAddress());
@@ -28,10 +28,6 @@ public class VenueService {
 
 		if (null != venue.getName()) {
 			existingVenue.setName(venue.getName());
-		}
-
-		if (null != venue.getCapacity()) {
-			existingVenue.setCapacity(venue.getCapacity());
 		}
 
 		if (null != venue.getAdminId()) {

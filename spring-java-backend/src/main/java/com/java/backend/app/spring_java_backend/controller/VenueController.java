@@ -3,6 +3,7 @@ package com.java.backend.app.spring_java_backend.controller;
 import com.java.backend.app.spring_java_backend.model.Venue;
 import com.java.backend.app.spring_java_backend.service.VenueService;
 import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,7 @@ public class VenueController {
 
 	@PostMapping("/add")
 	public ResponseEntity<Venue> addVenue(@RequestBody @Valid Venue venue) {
-		//log.info("Adding venue with venue id", venue.getId());
+		//log.info("Adding venue with venue id {}", venue.getId());
 		Venue savedVenue = venueService.addVenue(venue);
 		return new ResponseEntity<>(savedVenue, HttpStatus.CREATED);
 	}

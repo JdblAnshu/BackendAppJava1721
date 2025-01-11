@@ -12,6 +12,15 @@ public class EventRequest {
 	private LocalDateTime endTime;
 	private Boolean isActive;
 	private Long venueId;  // Foreign key for venue
+	private Long capacity;
+
+	public Long getCapacity() {
+		return capacity;
+	}
+
+	public void setCapacity(Long capacity) {
+		this.capacity = capacity;
+	}
 
 	public String getName() {
 		return name;

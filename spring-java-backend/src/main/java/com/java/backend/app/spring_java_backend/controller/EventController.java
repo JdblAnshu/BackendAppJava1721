@@ -34,13 +34,12 @@ public class EventController {
 	public ResponseEntity<EventDetails> getEventById(@PathVariable Long eventId) {
 		EventDetails eventDetails = eventService.getEventById(eventId);
 		return new ResponseEntity<>(eventDetails, HttpStatus.OK);
-
 	}
 
 	@GetMapping("/venue/{venueId}")
 	public ResponseEntity<List<EventResponse>> getEventByVenueId(@PathVariable Long venueId) {
 		List<EventResponse> eventDetailsList = eventService.getEventByVenueId(venueId);
 		return new ResponseEntity<>(eventDetailsList, HttpStatus.OK);
-
 	}
+
 }

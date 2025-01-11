@@ -78,19 +78,20 @@
             -> Update details api - both 
 
 /////////
-  Apply spotless formatter
-  Apply archunit 
-  Timed and trace for methods
-  Emit metrics
-  Check for vulnerablities
-  Foreign key @one-many, @one one
-  Try orphanremoval and cascadetype
-  Unit test 
+  
+    Apply spotless formatter
+    Apply archunit 
+    Timed and trace for methods
+    Emit metrics
+    Check for vulnerablities
+    Foreign key @one-many, @one one
+    Try orphanremoval and cascadetype
+    Unit test 
 
-Integration test at the end if possible spin containers
-Logstash
+    Integration test at the end if possible spin containers
+    Logstash
 
-CHECK FOR ACCESS MODIFIERS 
+    CHECK FOR ACCESS MODIFIERS 
     
     
             

@@ -20,9 +20,6 @@ public class Venue {
 
     String address;
 
-    @Min(value = 1, message = "Capacity must be greater than 0")
-    Long capacity;
-
     Long adminId;
 
     @OneToMany(mappedBy = "venue")
@@ -52,14 +49,6 @@ public class Venue {
 
     public void setName(@NotNull(message = "Venue name cannot be null") String name) {
         this.name = name;
-    }
-
-    public @Min(value = 1, message = "Capacity must be greater than 0") Long getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(@Min(value = 1, message = "Capacity must be greater than 0") Long capacity) {
-        this.capacity = capacity;
     }
 
     public Long getAdminId() {
