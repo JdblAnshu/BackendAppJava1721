@@ -1,5 +1,6 @@
 package com.java.backend.app.spring_java_backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Min;
@@ -25,6 +26,7 @@ public class Venue {
     Long adminId;
 
     @OneToMany(mappedBy = "venue")
+    @JsonIgnoreProperties("venue")
     private List<EventDetails> events;
 
 

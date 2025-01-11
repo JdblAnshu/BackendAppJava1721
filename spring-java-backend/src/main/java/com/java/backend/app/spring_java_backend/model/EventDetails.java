@@ -1,6 +1,8 @@
 package com.java.backend.app.spring_java_backend.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,14 +19,15 @@ public class EventDetails {
 	Long id;
 
 	String name;
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
 	LocalDateTime startTime;
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
 	LocalDateTime endTime;
 
 	Boolean isActive;
 
 	@ManyToOne
+	@JsonIgnoreProperties("events")
 	@JoinColumn(name="venue_id", nullable = false, referencedColumnName = "id")
 	Venue venue;
 
