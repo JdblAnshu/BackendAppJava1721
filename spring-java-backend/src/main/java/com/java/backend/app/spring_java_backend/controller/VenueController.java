@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-//@Slf4j
+@Slf4j
 @RestController
 @RequestMapping("/venue")
 public class VenueController {
@@ -18,8 +18,8 @@ public class VenueController {
 
 	@PostMapping("/add")
 	public ResponseEntity<Venue> addVenue(@RequestBody @Valid Venue venue) {
-		//log.info("Adding venue with venue id {}", venue.getId());
 		Venue savedVenue = venueService.addVenue(venue);
+		log.info("Venue added with id {}", venue.getId());
 		return new ResponseEntity<>(savedVenue, HttpStatus.CREATED);
 	}
 

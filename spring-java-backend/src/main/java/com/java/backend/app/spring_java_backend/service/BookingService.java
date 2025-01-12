@@ -4,6 +4,7 @@ import com.java.backend.app.spring_java_backend.dto.request.BookingRequest;
 import com.java.backend.app.spring_java_backend.model.BookingDetails;
 import com.java.backend.app.spring_java_backend.model.EventDetails;
 import com.java.backend.app.spring_java_backend.model.Status;
+import com.java.backend.app.spring_java_backend.model.User;
 import com.java.backend.app.spring_java_backend.repository.BookingRepository;
 import com.java.backend.app.spring_java_backend.repository.EventRepository;
 import com.java.backend.app.spring_java_backend.repository.UserRepository;
@@ -31,13 +32,13 @@ public class BookingService {
 			throw new RuntimeException("Seats not available");
 		}
 
-		//User userDetails = userRepository.findById(bookingRequest.getUserId()).orElseThrow(() -> new RuntimeException("User not found"));
+		User userDetails = userRepository.findById(bookingRequest.getUserId()).orElseThrow(() -> new RuntimeException("User not found"));
 		eventDetails.setCapacity(eventDetails.getCapacity() - bookingRequest.getNumberOfSeats());//TODO
 
 		BookingDetails bd = new BookingDetails();
 		bd.setEvent(eventDetails);
 		bd.setStatus(Status.BOOKED);
-		//bd.setUser(userDetails);
+		bd.setUser(userDetails);
 		bd.setNumberOfSeats(bookingRequest.getNumberOfSeats());
 		bd.setPhone(bookingRequest.getPhone());
 

@@ -4,11 +4,15 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Min;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 @Entity
 @Table
+@Getter
+@Setter
 public class Venue {
 
     @Id
@@ -25,45 +29,4 @@ public class Venue {
     @OneToMany(mappedBy = "venue")
     @JsonIgnoreProperties("venue")
     private List<EventDetails> events;
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public @NotNull(message = "Venue name cannot be null") String getName() {
-        return name;
-    }
-
-    public void setName(@NotNull(message = "Venue name cannot be null") String name) {
-        this.name = name;
-    }
-
-    public Long getAdminId() {
-        return adminId;
-    }
-
-    public void setAdminId(Long adminId) {
-        this.adminId = adminId;
-    }
-
-    public List<EventDetails> getEvents() {
-        return events;
-    }
-
-    public void setEvents(List<EventDetails> events) {
-        this.events = events;
-    }
 }

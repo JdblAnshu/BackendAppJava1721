@@ -31,7 +31,7 @@ public class EventService {
 		eventDetails.setStartTime(eventRequest.getStartTime());
 		eventDetails.setEndTime(eventRequest.getEndTime());
 		eventDetails.setCapacity(eventRequest.getCapacity());
-		eventDetails.setActive(eventRequest.getActive());
+		eventDetails.setIsActive(eventRequest.getIsActive());
 		eventDetails.setVenue(venue);  // Setting the venue
 
 		return eventRepository.save(eventDetails);
