@@ -27,7 +27,16 @@ public class BookingDetails {
 
 	Long phone;
 
+	@Enumerated(EnumType.STRING)
+	Status status;
 
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
 
 	public UUID getId() {
 		return id;

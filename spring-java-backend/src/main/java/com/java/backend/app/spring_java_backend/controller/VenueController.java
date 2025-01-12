@@ -26,7 +26,6 @@ public class VenueController {
 	@PatchMapping("/{id}")
 	public ResponseEntity<Venue> updateVenue(@PathVariable Long id, @RequestBody Venue venue) {
 		Venue updatedVenue = venueService.updateVenue(id, venue);
-
 		return  new ResponseEntity<>(updatedVenue, HttpStatus.OK);
 	}
 
