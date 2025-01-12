@@ -1,5 +1,6 @@
 package com.java.backend.app.spring_java_backend.service;
 
+import com.java.backend.app.spring_java_backend.exception.ResourceNotFoundException;
 import com.java.backend.app.spring_java_backend.model.Venue;
 import com.java.backend.app.spring_java_backend.repository.VenueRepository;
 import lombok.AllArgsConstructor;
@@ -20,7 +21,7 @@ public class VenueService {
 
 	public Venue updateVenue(Long id, Venue venue) {
 
-		Venue existingVenue = venueRepository.findById(id).orElseThrow(() -> new RuntimeException("Venue not found"));
+		Venue existingVenue = venueRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Venue not found"));
 
 		if (null != venue.getAddress()) {
 			existingVenue.setAddress(venue.getAddress());
