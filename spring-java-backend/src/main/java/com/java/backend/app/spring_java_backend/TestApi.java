@@ -20,4 +20,13 @@ public class TestApi {
 		return "Result: " + result;
 	}
 
+	public static String get() {
+		return "Hello JUnit 5";
+	}
+
+
+	public static boolean isEven(int number){
+		return number % 2 == 0;
+	}
+
 }

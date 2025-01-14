@@ -70,6 +70,33 @@
 
 	<build>
 		<plugins>
+			<!-- Maven Surefire Plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.1.0</version> <!-- Use the latest version -->
+				<configuration>
+					<!-- Optional: Customize test report settings -->
+					<reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>3.1.0</version>
+				<executions>
+					<execution>
+						<phase>site</phase> <!-- The site phase generates the reports -->
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
