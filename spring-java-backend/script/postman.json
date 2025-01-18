@@ -1,0 +1,690 @@
+{
+	"info": {
+		"_postman_id": "305baa33-194b-4147-b851-3a3f5602b3d6",
+		"name": "JavaBackend1721Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40929438"
+	},
+	"item": [
+		{
+			"name": "CancelBooking",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": []
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "insomnia/10.3.0"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/booking/cancel/3ccfc433-52c1-4c40-9c5f-dcb9e2cb5299",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"booking",
+						"cancel",
+						"3ccfc433-52c1-4c40-9c5f-dcb9e2cb5299"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetBookingById",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": []
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "insomnia/10.3.0"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/booking/3ccfc433-52c1-4c40-9c5f-dcb9e2cb5299",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"booking",
+						"3ccfc433-52c1-4c40-9c5f-dcb9e2cb5299"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Exception handler Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": []
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "insomnia/10.3.0"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/booking/3ccfc433-52c1-4c40-9c5f-dcb9e2cb5299",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"booking",
+						"3ccfc433-52c1-4c40-9c5f-dcb9e2cb5299"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Booking ticket",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": []
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "insomnia/10.3.0"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"phone\" : 12345,\n\t\"numberOfSeats\" : 16,\n\t\"eventId\" : 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/booking/ticket",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"booking",
+						"ticket"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all event by venue id ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": []
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "insomnia/10.3.0"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/event/venue/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"event",
+						"venue",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EventAdd",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": []
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "insomnia/10.3.0"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"venueId\" : 2,\n\t\"isActive\": true,\n\t\"name\" : \"Wkanda\",\n\t\"startTime\" : \"2025-01-11T14:30:00\",\n\t\"endTime\" : \"2025-01-11T14:30:00\",\n\t\"capacity\" : 500\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/event/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"event",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteVenue",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": []
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "insomnia/10.3.0"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/venue/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"venue",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateVenue",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": []
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "insomnia/10.3.0"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 12,\n\t\"name\": \"Anshu2\",\n\t\"address\": \"Jakarta\",\n\t\"capacity\": 20,\n\t\"adminId\": 1234\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/venue/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"venue",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VenueAdd",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "insomnia/10.3.0"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"Visal\",\n\t\"address\" : \"Thaimahshaa\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/venue/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"venue",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get description",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": []
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "insomnia/10.3.0"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/getDescription",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getDescription"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all venues",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "insomnia/10.3.0"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/venue?page=6&size=3&sortBy=name&sortOrder=asc",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"venue"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "6"
+						},
+						{
+							"key": "size",
+							"value": "3"
+						},
+						{
+							"key": "sortBy",
+							"value": "name"
+						},
+						{
+							"key": "sortOrder",
+							"value": "asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all venues Slice",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "insomnia/10.3.0"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/venue?page=6&size=3&sortBy=name&sortOrder=asc",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"venue"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "6"
+						},
+						{
+							"key": "size",
+							"value": "3"
+						},
+						{
+							"key": "sortBy",
+							"value": "name"
+						},
+						{
+							"key": "sortOrder",
+							"value": "asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get venue by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "insomnia/10.3.0"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/venue/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"venue",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Inspect Cache",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "insomnia/10.3.0"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/venue/inspectCache?cacheName=venues",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"venue",
+						"inspectCache"
+					],
+					"query": [
+						{
+							"key": "cacheName",
+							"value": "venues"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add User",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

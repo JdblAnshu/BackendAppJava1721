@@ -4,6 +4,7 @@ import com.java.backend.app.spring_java_backend.exception.ResourceNotFoundExcept
 import com.java.backend.app.spring_java_backend.model.Venue;
 import com.java.backend.app.spring_java_backend.repository.VenueRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
@@ -49,5 +50,11 @@ public class VenueService {
 
 	public Slice<Venue> getAllVenuesSlice(Pageable pageRequest) {
 		return venueRepository.findAll(pageRequest);
+	}
+
+	@Cacheable(value = "venues", key = "#id", unless = "#result == null")
+	public Venue getVenueById(Long id) {
+		System.out.println("Getting from db");
+		return venueRepository.findById(id).orElseThrow(null);
 	}
 }

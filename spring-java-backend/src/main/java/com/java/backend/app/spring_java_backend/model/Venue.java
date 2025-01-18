@@ -29,4 +29,14 @@ public class Venue {
     @OneToMany(mappedBy = "venue")
     @JsonIgnoreProperties("venue")
     private List<EventDetails> events;
+
+    @Override
+    public String toString() {
+        return "Venue{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", adminId=" + adminId +
+                '}';
+    }
 }

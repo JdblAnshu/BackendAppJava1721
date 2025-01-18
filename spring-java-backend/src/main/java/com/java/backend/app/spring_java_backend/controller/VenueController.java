@@ -1,16 +1,20 @@
 package com.java.backend.app.spring_java_backend.controller;
 
+import com.github.benmanes.caffeine.cache.Cache;
 import com.java.backend.app.spring_java_backend.model.Venue;
 import com.java.backend.app.spring_java_backend.service.VenueService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.caffeine.CaffeineCache;
 import org.springframework.data.domain.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @RestController
@@ -18,6 +22,9 @@ import java.util.List;
 public class VenueController {
 	@Autowired
 	private VenueService venueService;
+
+	@Autowired
+	private CacheManager cacheManager;
 
 	@PostMapping("/add")
 	public ResponseEntity<Venue> addVenue(@RequestBody @Valid Venue venue) {
@@ -36,6 +43,12 @@ public class VenueController {
 	public ResponseEntity<String> deleteVenue(@PathVariable Long id) {
 		String msg = venueService.deleteVenue(id);
 		return new ResponseEntity<>(msg, HttpStatus.OK);
+	}
+
+	@GetMapping("/get/{id}")
+	public ResponseEntity<Venue> getVenueById(@PathVariable Long id) {
+		Venue venue = venueService.getVenueById(id);
+		return new ResponseEntity<>(venue, HttpStatus.OK);
 	}
 
 	@GetMapping("/page")
@@ -70,5 +83,19 @@ public class VenueController {
 		Slice<Venue> venues = venueService.getAllVenuesSlice(pageable);
 
 		return new ResponseEntity<>(venues, HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/inspectCache")
+	public void inspectCache(@RequestParam String cacheName) {
+
+		CaffeineCache caffeineCache = (CaffeineCache) cacheManager.getCache(cacheName);
+		Cache<Object, Object> nativeCache = caffeineCache.getNativeCache();
+		nativeCache.stats();
+
+		for (Map.Entry<Object, Object> entry : nativeCache.asMap().entrySet()) {
+
+			System.out.println("Key = " + entry.getKey());
+			System.out.println("Value = " + entry.getValue().toString());
+		}
 	}
 }
