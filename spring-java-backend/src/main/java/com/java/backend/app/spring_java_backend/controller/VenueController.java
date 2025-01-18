@@ -5,9 +5,12 @@ import com.java.backend.app.spring_java_backend.service.VenueService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -33,5 +36,39 @@ public class VenueController {
 	public ResponseEntity<String> deleteVenue(@PathVariable Long id) {
 		String msg = venueService.deleteVenue(id);
 		return new ResponseEntity<>(msg, HttpStatus.OK);
+	}
+
+	@GetMapping("/page")
+	public  ResponseEntity<Page<Venue>> getAllVenues(
+			@RequestParam(defaultValue = "0") int page,
+			@RequestParam(defaultValue = "10") int size,
+			@RequestParam(defaultValue = "id") String sortBy,
+			@RequestParam(defaultValue = "asc") String sortOrder
+	) {
+		Sort sort = sortOrder.equalsIgnoreCase(Sort.Direction.ASC.name())
+				? Sort.by(sortBy).ascending()
+				: Sort.by(sortBy).descending();
+
+		Pageable pageable = PageRequest.of(page, size, sort);
+		Page<Venue> venues = venueService.getAllVenues(pageable);
+
+		return new ResponseEntity<>(venues, HttpStatus.OK);
+	}
+
+	@GetMapping("/slice")
+	public  ResponseEntity<Slice<Venue>> getAllVenuesSlice(
+			@RequestParam(defaultValue = "0") int page,
+			@RequestParam(defaultValue = "10") int size,
+			@RequestParam(defaultValue = "id") String sortBy,
+			@RequestParam(defaultValue = "asc") String sortOrder
+	) {
+		Sort sort = sortOrder.equalsIgnoreCase(Sort.Direction.ASC.name())
+				? Sort.by(sortBy).ascending()
+				: Sort.by(sortBy).descending();
+
+		Pageable pageable = PageRequest.of(page, size, sort);
+		Slice<Venue> venues = venueService.getAllVenuesSlice(pageable);
+
+		return new ResponseEntity<>(venues, HttpStatus.OK);
 	}
 }

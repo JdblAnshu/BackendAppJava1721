@@ -3,12 +3,11 @@ package com.java.backend.app.spring_java_backend.service;
 import com.java.backend.app.spring_java_backend.exception.ResourceNotFoundException;
 import com.java.backend.app.spring_java_backend.model.Venue;
 import com.java.backend.app.spring_java_backend.repository.VenueRepository;
-import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class VenueService {
@@ -42,5 +41,13 @@ public class VenueService {
 	public String deleteVenue(Long id) {
 		venueRepository.deleteById(id);
 		return "Delete " + id + " Successfully";
+	}
+
+	public Page<Venue> getAllVenues(Pageable pageRequest) {
+		return venueRepository.findAll(pageRequest);
+	}
+
+	public Slice<Venue> getAllVenuesSlice(Pageable pageRequest) {
+		return venueRepository.findAll(pageRequest);
 	}
 }
