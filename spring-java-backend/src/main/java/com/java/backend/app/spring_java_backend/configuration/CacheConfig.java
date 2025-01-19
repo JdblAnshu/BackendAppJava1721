@@ -17,7 +17,9 @@ public class CacheConfig {
     public Caffeine<Object, Object> caffeineConfig() {
         return Caffeine.newBuilder()
                 .maximumSize(1000)
+
                 //.expireAfterWrite(10, ChronoUni.Minutes)
+
                 .recordStats(); // Maximum number of entries
     }
 
