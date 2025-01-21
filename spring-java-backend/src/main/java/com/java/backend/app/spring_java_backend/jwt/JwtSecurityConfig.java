@@ -23,6 +23,7 @@ public class JwtSecurityConfig {
 
 		http.csrf(AbstractHttpConfigurer::disable)
 				.authorizeHttpRequests(auth -> auth
+						.requestMatchers("/**").permitAll()
 						.requestMatchers("/venue/get/**").authenticated()
 						.requestMatchers("/venue/add/**").permitAll())
 				.exceptionHandling(ex -> ex.authenticationEntryPoint(point))

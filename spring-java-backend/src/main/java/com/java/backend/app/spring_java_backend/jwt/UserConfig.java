@@ -1,4 +1,4 @@
-package com.java.backend.app.spring_java_backend.configuration;
+package com.java.backend.app.spring_java_backend.jwt;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

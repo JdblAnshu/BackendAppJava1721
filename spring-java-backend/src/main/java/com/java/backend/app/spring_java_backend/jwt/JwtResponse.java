@@ -1,13 +1,14 @@
 package com.java.backend.app.spring_java_backend.jwt;
 
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class JwtResponse {
 
 	String jwtToken;
