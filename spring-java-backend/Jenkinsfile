@@ -1,0 +1,52 @@
+pipeline {
+	agent any
+
+	environment {
+		mavenHome = tool 'jenkins-maven'
+	}
+
+	triggers {
+        pollSCM '* * * * *'
+    }
+
+	tools {
+		jdk 'java-17'
+		maven 'jenkins-maven'
+	}
+
+	stages {
+
+	  stage('Code Checkout') {
+                steps {
+                    git branch: 'main', changelog: false, poll: false, url: 'https://github.com/JdblAnshu/BackendAppJava1721.git'
+                }
+            }
+
+		stage('Build'){
+			steps {
+				sh "cd spring-java-backend && mvn clean install -DskipTests"
+			}
+		}
+
+		stage('Test'){
+			steps{
+				sh "cd spring-java-backend && mvn test"
+			}
+		}
+
+		stage('Package'){
+			steps{
+				sh "cd spring-java-backend && mvn package"
+			}
+		}
+
+
+//
+// 		stage('Deploy') {
+// 			steps {
+// 			    sh "cd spring-java-backend && mvn jar:jar deploy:deploy"
+// 			}
+// 		}
+
+	}
+}
